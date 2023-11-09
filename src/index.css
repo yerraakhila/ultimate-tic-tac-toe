@@ -274,3 +274,8 @@ body{
 .status-text-deco{
   
 }
+@media  only screen and (max-width: 480px) {
+  .centering-ultimate-box{
+    transform: scale(0.7);
+  }
+}
