@@ -272,10 +272,16 @@ body{
   color: green;
 }
 .status-text-deco{
-  
+  font-size: xx-large;
 }
 @media  only screen and (max-width: 480px) {
-  .centering-ultimate-box{
-    transform: scale(0.7);
+  .make-square{
+    height: 10vw;
+    width: 10vw;
+    font-size: 7vw;
+    border: 0.7px solid gray;
+  }
+  .border{
+    border: 1.2px solid rgb(97, 95, 95);
   }
 }
