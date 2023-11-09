@@ -1,9 +1,9 @@
-import NewUltimateBoard from "./components/NewUltimateBoard";
+import UltimateBoard from "./components/UltimateBoard";
 
 function App() {
   return (
     <div className="home">
-      <NewUltimateBoard/>
+      <UltimateBoard />
     </div>
   );
 }
