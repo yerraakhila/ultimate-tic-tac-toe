@@ -126,7 +126,7 @@ function UltimateBoard() {
 
   return (
     <div className="centering-ultimate-box">
-      <div className="status-text-deco">{status}</div>
+      
       <div className="ver border">
         <div className="hor">
           <Board
@@ -198,6 +198,7 @@ function UltimateBoard() {
           />
         </div>
       </div>
+      <div className="status-text-deco">{status}</div>
     </div>
   );
 }
