@@ -1,3 +1,9 @@
+# Ultimate Tic Tac Toe
+
+Play at https://premier-tic-tac-toe.web.app/
+
+## Rules for the game
+
 1. The first player can place their designated shape at any of the 81 squares provided.
 
 2. Whichever square that the first player places in a small tic tac toe, determines which square of the large tic tac toe the next player gets to place their shape at. They are confined to that small tic tac toe ONLY.
