@@ -1,11 +1,17 @@
-import { useState } from "react";
 import Board from "./Board";
+import useStickyState from "../stickyState";
 
 function UltimateBoard() {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [totalSquares, setTotalSquares] = useState(Array(81).fill(null));
-  const [boxes, setBoxes] = useState(Array(9).fill(null));
-  const [prevSquareIndex, setPrevSquareIndex] = useState(null);
+  const [xIsNext, setXIsNext] = useStickyState(true, "xIsNext");
+  const [totalSquares, setTotalSquares] = useStickyState(
+    Array(81).fill(null),
+    "totalSquares"
+  );
+  const [boxes, setBoxes] = useStickyState(Array(9).fill(null), "boxes");
+  const [prevSquareIndex, setPrevSquareIndex] = useStickyState(
+    null,
+    "prevSquareIndex"
+  );
 
   function getBoard(boardIndex) {
     return totalSquares.slice(boardIndex * 9, (boardIndex + 1) * 9);
