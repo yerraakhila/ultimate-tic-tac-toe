@@ -2,8 +2,28 @@ import Square from "./Square";
 
 function Board({ squares, handleClick, isClickable, winner, isDraw }) {
   return (
-    <div className={isClickable ? "relative clickable-box" : isDraw ? "relative gray" : "relative"}>
-      <div className={winner ? winner === "X" ? "absolute blue block-with-winner" : "absolute pink block-with-winner" : isDraw ? "absolute red block-with-winner" : "absolute"}>{winner ? winner : isDraw ? "!" : ""}</div>
+    <div
+      className={
+        isClickable
+          ? "relative clickable-box"
+          : isDraw
+          ? "relative gray"
+          : "relative"
+      }
+    >
+      <div
+        className={
+          winner
+            ? winner === "X"
+              ? "absolute blue block-with-winner"
+              : "absolute pink block-with-winner"
+            : isDraw
+            ? "absolute red block-with-winner"
+            : "absolute"
+        }
+      >
+        {winner ? winner : isDraw ? "!" : ""}
+      </div>
       <div className="ver border">
         <div className="hor">
           <Square value={squares[0]} onSquareClick={() => handleClick(0)} />

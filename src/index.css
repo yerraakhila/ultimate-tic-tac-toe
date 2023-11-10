@@ -164,7 +164,7 @@ h1{
   align-items: center;
   gap: 30px;
 }
-.make-square{
+.square-btn{
   height: 50px;
   width: 50px;
   font-size: 35px;
@@ -194,10 +194,12 @@ h1{
   box-sizing: border-box;
   font-family: sans-serif;
 }
-body{
+body {
   margin: 0px;
+  background-color: rgb(248, 248, 231);
 }
-.make-square{
+
+.square-btn {
   height: 50px;
   width: 50px;
   font-size: 35px;
@@ -206,88 +208,204 @@ body{
   font-weight: bold;
   background-color: transparent;
 }
-.hor{
+.hor {
   display: flex;
-  
 }
-.ver{
+.ver {
   display: flex;
   flex-direction: column;
 }
-.border{
+.border {
   border: 2px solid rgb(97, 95, 95);
   position: relative;
 }
-.relative{
+.relative {
   position: relative;
 }
-.absolute{
+.absolute {
   position: absolute;
 }
-.centering-ultimate-box{
+.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(4, 96, 93);
+  margin: 0px;
+  height: 10vh;
+  align-items: center;
+  color: white;
+}
+.centering-ultimate-box {
+  display: flex;
+  height: 90vh;
+  gap: 30px;
+  padding-top: 20px;
+}
+.board-div {
+  width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
-.home{
-  display: flex;
-  flex-direction: column;
-  justify-content:center ;
-  height: 100vh;
-  width: 100%;
-}
-.clickable-box{
+.clickable-box {
   background-color: rgb(247, 218, 151);
 }
-.blue{
-  color:rgb(15, 121, 243);
+.blue {
+  color: rgb(15, 121, 243);
 }
-.block-with-winner{
+.block-with-winner {
   text-align: center;
   font-size: 130px;
-  bottom:3px;
-  right: 3px;
   z-index: 1;
   background-color: white;
   height: 148px;
   width: 148px;
+  bottom: 3px;
+  right: 3px;
 }
-.pink{
+.pink {
   color: rgb(237, 29, 174);
 }
-.gray{
+.gray {
   background-color: rgb(204, 203, 203);
 }
-.block-with-draw{
+.block-with-draw {
   text-align: center;
   font-size: 150px;
-  bottom:-10px;
+  bottom: -10px;
   right: 60px;
   z-index: 1;
 }
-.red{
+.red {
   color: red;
 }
-.green{
+.green {
   color: green;
 }
-.status-text-deco{
-  
+.status-next-text-deco {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 35px;
 }
-@media  only screen and (max-width: 500px) {
-  .make-square{
-    height: 10vw;
-    width: 10vw;
-    font-size: 7vw;
-    border: 0.8px solid gray;
+.status-winner-deco {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 60px;
+}
+.status-draw-deco {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 50px;
+}
+h1 {
+  font-size: 50px;
+  margin: 0px;
+}
+.without-board {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+button {
+  font-size: 20px;
+  background-color: rgb(216, 61, 9);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+}
+p {
+  font-size: 20px;
+}
+h2 {
+  font-size: 30px;
+}
+
+.rules {
+  margin-right: 50px;
+}
+.ultimate-board {
+  background-color: white;
+}
+@media only screen and (max-width: 1100px) {
+  .centering-ultimate-box {
+    flex-direction: column;
+    height: fit-content;
+    align-items: center;
+    gap: 50px;
+    padding-top: 40px;
   }
-  .border{
-    border: 1.6px solid rgb(97, 95, 95);
+  .board-div {
+    width: 90%;
+    gap: 30px;
   }
-  .block-with-winner{
-    font-size: 26vw;
-    height: 29.6vw;
-    width: 29.6vw;
-    
+  .without-board {
+    width: 90%;
+  }
+  .rules {
+    margin-right: 0px;
+  }
+  button {
+    font-size: 30px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  h1 {
+    font-size: 40px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 35px;
+  }
+  .board-div {
+    transform: scale(0.95);
+  }
+  button {
+    font-size: 30px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .board-div {
+    transform: scale(0.9);
+  }
+  .centering-ultimate-box {
+    gap: 40px;
+    padding-top: 40px;
+  }
+}
+@media only screen and (max-width: 450px) {
+  h1 {
+    font-size: 30px;
+  }
+  .board-div {
+    transform: scale(0.8);
+  }
+  .centering-ultimate-box {
+    gap: 0px;
+    padding-top: 0px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .board-div {
+    transform: scale(0.75);
+  }
+  .board-div {
+    gap: 45px;
+  }
+}
+@media only screen and (max-width: 360px) {
+  .board-div {
+    transform: scale(0.6);
   }
 }

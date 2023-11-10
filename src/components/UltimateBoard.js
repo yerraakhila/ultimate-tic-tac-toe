@@ -96,109 +96,179 @@ function UltimateBoard() {
   }
 
   function isDraw(boardIndex) {
-    return !singleBoardWinner(getBoard(boardIndex)) && boardIsFilled(boardIndex)
+    return (
+      !singleBoardWinner(getBoard(boardIndex)) && boardIsFilled(boardIndex)
+    );
   }
 
   function notClickable() {
     for (let i = 0; i < 9; i++) {
       if (isClickable(i) === false) {
-        continue
-      }
-      else {
-        return false
+        continue;
+      } else {
+        return false;
       }
     }
-    return true
+    return true;
   }
 
   let status;
   if (ultimateBoardWinner()) {
-    status = "winner : " + ultimateBoardWinner();
+    status = "Winner : " + ultimateBoardWinner();
   } else {
     if (notClickable()) {
-      status = "It's a Draw!!!"
+      status = "It's a Draw!!!";
+    } else {
+      status = "Next Player : " + (xIsNext ? "X" : "O");
     }
-    else {
-      status = "Next Player : " + (xIsNext ? "X" : "O")
-    }
+  }
 
+  function handleReset() {
+    setTotalSquares(Array(81).fill(null));
+    setPrevSquareIndex(null);
+    setXIsNext(true);
+    setBoxes(Array(9).fill(null));
   }
 
   return (
     <div className="centering-ultimate-box">
-      
-      <div className="ver border">
-        <div className="hor">
-          <Board
-            squares={getBoard(0)}
-            handleClick={(squareIndex) => handleUltimateClick(0, squareIndex)}
-            isClickable={isClickable(0)}
-            winner={singleBoardWinner(getBoard(0))}
-            isDraw={isDraw(0)}
-          />
-          <Board
-            squares={getBoard(1)}
-            handleClick={(squareIndex) => handleUltimateClick(1, squareIndex)}
-            isClickable={isClickable(1)}
-            winner={singleBoardWinner(getBoard(1))}
-            isDraw={isDraw(1)}
-          />
-          <Board
-            squares={getBoard(2)}
-            handleClick={(squareIndex) => handleUltimateClick(2, squareIndex)}
-            isClickable={isClickable(2)}
-            winner={singleBoardWinner(getBoard(2))}
-            isDraw={isDraw(2)}
-          />
+      <div className="board-div">
+        <div
+          style={{ margin: "0px" }}
+          className={
+            ultimateBoardWinner()
+              ? "status-winner-deco green"
+              : notClickable()
+              ? "status-draw-deco red"
+              : xIsNext
+              ? "status-next-text-deco blue"
+              : "status-next-text-deco pink"
+          }
+        >
+          {status}
         </div>
-        <div className="hor">
-          <Board
-            squares={getBoard(3)}
-            handleClick={(squareIndex) => handleUltimateClick(3, squareIndex)}
-            isClickable={isClickable(3)}
-            winner={singleBoardWinner(getBoard(3))}
-            isDraw={isDraw(3)}
-          />
-          <Board
-            squares={getBoard(4)}
-            handleClick={(squareIndex) => handleUltimateClick(4, squareIndex)}
-            isClickable={isClickable(4)}
-            winner={singleBoardWinner(getBoard(4))}
-            isDraw={isDraw(4)}
-          />
-          <Board
-            squares={getBoard(5)}
-            handleClick={(squareIndex) => handleUltimateClick(5, squareIndex)}
-            isClickable={isClickable(5)}
-            winner={singleBoardWinner(getBoard(5))}
-            isDraw={isDraw(5)}
-          />
+        <div className="ultimate-board">
+          <div className="ver border">
+            <div className="hor">
+              <Board
+                squares={getBoard(0)}
+                handleClick={(squareIndex) =>
+                  handleUltimateClick(0, squareIndex)
+                }
+                isClickable={isClickable(0)}
+                winner={singleBoardWinner(getBoard(0))}
+                isDraw={isDraw(0)}
+              />
+              <Board
+                squares={getBoard(1)}
+                handleClick={(squareIndex) =>
+                  handleUltimateClick(1, squareIndex)
+                }
+                isClickable={isClickable(1)}
+                winner={singleBoardWinner(getBoard(1))}
+                isDraw={isDraw(1)}
+              />
+              <Board
+                squares={getBoard(2)}
+                handleClick={(squareIndex) =>
+                  handleUltimateClick(2, squareIndex)
+                }
+                isClickable={isClickable(2)}
+                winner={singleBoardWinner(getBoard(2))}
+                isDraw={isDraw(2)}
+              />
+            </div>
+            <div className="hor">
+              <Board
+                squares={getBoard(3)}
+                handleClick={(squareIndex) =>
+                  handleUltimateClick(3, squareIndex)
+                }
+                isClickable={isClickable(3)}
+                winner={singleBoardWinner(getBoard(3))}
+                isDraw={isDraw(3)}
+              />
+              <Board
+                squares={getBoard(4)}
+                handleClick={(squareIndex) =>
+                  handleUltimateClick(4, squareIndex)
+                }
+                isClickable={isClickable(4)}
+                winner={singleBoardWinner(getBoard(4))}
+                isDraw={isDraw(4)}
+              />
+              <Board
+                squares={getBoard(5)}
+                handleClick={(squareIndex) =>
+                  handleUltimateClick(5, squareIndex)
+                }
+                isClickable={isClickable(5)}
+                winner={singleBoardWinner(getBoard(5))}
+                isDraw={isDraw(5)}
+              />
+            </div>
+            <div className="hor">
+              <Board
+                squares={getBoard(6)}
+                handleClick={(squareIndex) =>
+                  handleUltimateClick(6, squareIndex)
+                }
+                isClickable={isClickable(6)}
+                winner={singleBoardWinner(getBoard(6))}
+                isDraw={isDraw(6)}
+              />
+              <Board
+                squares={getBoard(7)}
+                handleClick={(squareIndex) =>
+                  handleUltimateClick(7, squareIndex)
+                }
+                isClickable={isClickable(7)}
+                winner={singleBoardWinner(getBoard(7))}
+                isDraw={isDraw(7)}
+              />
+              <Board
+                squares={getBoard(8)}
+                handleClick={(squareIndex) =>
+                  handleUltimateClick(8, squareIndex)
+                }
+                isClickable={isClickable(8)}
+                winner={singleBoardWinner(getBoard(8))}
+                isDraw={isDraw(8)}
+              />
+            </div>
+          </div>
         </div>
-        <div className="hor">
-          <Board
-            squares={getBoard(6)}
-            handleClick={(squareIndex) => handleUltimateClick(6, squareIndex)}
-            isClickable={isClickable(6)}
-            winner={singleBoardWinner(getBoard(6))}
-            isDraw={isDraw(6)}
-          />
-          <Board
-            squares={getBoard(7)}
-            handleClick={(squareIndex) => handleUltimateClick(7, squareIndex)}
-            isClickable={isClickable(7)}
-            winner={singleBoardWinner(getBoard(7))}
-            isDraw={isDraw(7)}
-          />
-          <Board
-            squares={getBoard(8)}
-            handleClick={(squareIndex) => handleUltimateClick(8, squareIndex)}
-            isClickable={isClickable(8)}
-            winner={singleBoardWinner(getBoard(8))}
-            isDraw={isDraw(8)}
-          />
+        <button onClick={handleReset}>Reset Board</button>
+      </div>
+      <div className="without-board">
+        <div className="rules">
+          <h2>Rules:</h2>
+          <p>
+            1. The first player can place their designated shape at any of the
+            81 squares provided.
+          </p>
+          <p>
+            2. Whichever square that the first player places in a small tic tac
+            toe, determines which square of the large tic tac toe the next
+            player gets to place their shape at. They are confined to that small
+            tic tac toe ONLY.
+          </p>
+          <p>
+            3. Should that particular small tic tac toe be occupied already, the
+            player taht was sent there can choose to place their shape at any
+            available spot in the larger space.{" "}
+          </p>
+          <p>
+            4. The square is conquered by the player that achieves the 3 in a
+            row for that particular small tic tac toe.
+          </p>
+
+          <p>
+            5. Should a draw be achieved in that small tic tac toe, that square
+            is considered wasted and remains at a draw.{" "}
+          </p>
         </div>
       </div>
-      <div className="status-text-deco">{status}</div>
     </div>
   );
 }
