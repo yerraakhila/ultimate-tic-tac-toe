@@ -11,3 +11,7 @@ Play at https://premier-tic-tac-toe.web.app/
 3. Should that particular small tic tac toe be occupied already, the player that was sent there can choose to place their shape at any available spot in the larger space.
 
 4. The square is conquered by the player that achieves the 3 in a row for that particular small tic tac toe.
+
+## Development
+
+For instructions on how to run the project locally and deploy it to Firebase, see [development.md](file:///Users/shanmuk/Documents/GitHub/ultimate-tic-tac-toe/development.md).
