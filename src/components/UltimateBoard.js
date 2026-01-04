@@ -23,6 +23,7 @@ function UltimateBoard({ mode = "local", roomCode, playerRole, onBack }) {
   const [isLoading, setIsLoading] = useState(mode === "online");
   const [connectionError, setConnectionError] = useState(null);
   const [dbConnected, setDbConnected] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const firebaseConfigured = isFirebaseConfigured();
 
@@ -332,12 +333,26 @@ function UltimateBoard({ mode = "local", roomCode, playerRole, onBack }) {
                 {!isMyTurn && <span className="red"> (Wait for opponent)</span>}
               </div>
             </div>
-            <div className="share-link">
-              Invite Link: <a href={shareLink} onClick={(e) => {
-                e.preventDefault();
-                navigator.clipboard.writeText(shareLink);
-                alert("Link copied to clipboard!");
-              }}>{shareLink}</a>
+            <div className="invite-section">
+              <div className="share-link-label">Invite Link:</div>
+              <div className="copy-container">
+                <input
+                  type="text"
+                  readOnly
+                  value={shareLink}
+                  className="share-input"
+                />
+                <button
+                  className={`copy-button ${copied ? 'success' : ''}`}
+                  onClick={() => {
+                    navigator.clipboard.writeText(shareLink);
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 2000);
+                  }}
+                >
+                  {copied ? "✓ Copied!" : "📋 Copy"}
+                </button>
+              </div>
             </div>
           </div>
         )}
